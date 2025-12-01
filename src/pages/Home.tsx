@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 export default function Home() {
@@ -53,9 +53,9 @@ function CalculatorBox() {
     }
 
     // Example formulas — replace with real ones if needed
-    if (tab === "eur") setResult((num * 1.12).toFixed(2) + " €");
-    if (tab === "kwh") setResult((num * 0.85).toFixed(2) + " kWh");
-    if (tab === "co2") setResult((num * 0.42).toFixed(2) + " kg CO₂");
+    if (mode === "eur") setResult((num * 1.12).toFixed(2) + " €");
+    if (mode === "kwh") setResult((num * 0.85).toFixed(2) + " kWh");
+    if (mode === "co2") setResult((num * 0.42).toFixed(2) + " kg CO₂");
   };
 
   // update calculation when typing
