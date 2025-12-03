@@ -1,8 +1,8 @@
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import { Route, Routes } from "react-router-dom";
-import ProjectsList from "./pages/ProjectsList";
 import NewProject from "./pages/NewProject";
+import { ProjectList } from "./pages/ProjectList";
 
 export default function App() {
   return (
@@ -13,7 +13,7 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/new" element={<NewProject />} />
-          <Route path="/projects" element={<ProjectsList />} />
+          <Route path="/projects" element={<ProjectList />} />
         </Routes>
       </div>
     </div>

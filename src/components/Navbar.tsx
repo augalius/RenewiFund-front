@@ -4,11 +4,13 @@ export default function Navbar() {
     <nav className="w-full flex items-center justify-between py-5 px-10 bg-white">
       {/* Logo */}
       <div className="flex items-center gap-2">
+        <a href="/">
         <img 
           src="/logo.png"
           alt="logo"
           className="h-12 w-auto"
         />
+        </a>
       </div>
 
       {/* Menu */}

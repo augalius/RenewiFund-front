@@ -6,7 +6,7 @@ export default function Home() {
     <div className="w-full flex flex-col items-center text-center mt-10">
 
       {/* Main Heading */}
-      <h1 className="text-5xl font-bold mb-4">
+      <h1 className="text-green-600 text-5xl font-bold mb-4">
         Investicijos į žaliąją energiją
       </h1>
 
