@@ -2,9 +2,7 @@ import {
   BarChart3,
   Leaf,
   Coins,
-  Menu,
 } from "lucide-react";
-import { useState } from "react";
 import {
   LineChart,
   Line,
@@ -19,7 +17,6 @@ import {
 
 export function UserDashboard() {
 
-  const [sidebarOpen, setSidebarOpen] = useState(false);
   const user = JSON.parse(localStorage.getItem("user") || "{}");
   const isAccountValid = user.balance > 0 && user.isVerified;
 
@@ -88,14 +85,6 @@ export function UserDashboard() {
 
   return (
     <div className="flex w-full min-h-screen bg-[#F2F7F4]">
-
-      {/* Mobile top bar */}
-      <div className="md:hidden p-4 bg-white border-b flex items-center justify-between">
-        <h2 className="text-xl font-bold text-green-700">RenewiFund</h2>
-        <button onClick={() => setSidebarOpen(true)}>
-          <Menu className="w-7 h-7 text-green-700" />
-        </button>
-      </div>
 
       {/* Main Dashboard */}
       <div className="flex-1 p-6 md:p-10 overflow-hidden">
