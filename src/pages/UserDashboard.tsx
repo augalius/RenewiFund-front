@@ -65,7 +65,6 @@ export function UserDashboard() {
       // Generate portfolio growth data (last 6 months)
       const months = ["Sau", "Vas", "Kov", "Bal", "Geg", "Bir", "Lie", "Rugp", "Rugs", "Spa", "Lap", "Gru"];
       const portfolioData = [];
-      let cumulativeValue = 0;
 
       // Calculate total invested amount
       const totalInvested = userInvestments.reduce((sum, inv) => sum + inv.amount, 0);

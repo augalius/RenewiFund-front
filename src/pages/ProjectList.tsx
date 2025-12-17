@@ -17,10 +17,6 @@ export interface Project {
   duration: string;
 }
 
-const user = JSON.parse(localStorage.getItem("user") || "{}");
-
-const isAccountValid = user.balance > 0 && user.isVerified;
-
 const mockProjects: Project[] = [
   {
     id: "1",
@@ -113,7 +109,7 @@ export function ProjectList() {
       window.removeEventListener("userChanged", handleUserChange);
     };
   }, []);
-  
+
   const filteredProjects = mockProjects.filter((project) => {
     const matchesSearch =
       project.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
