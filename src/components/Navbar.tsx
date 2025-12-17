@@ -50,17 +50,14 @@ export default function Navbar() {
       </div>
 
       {/* Menu (hidden on mobile) */}
-      <div className="hidden md:flex gap-10 text-gray-800 font-medium">
-        <Link to="#">Investicijos žmonėms</Link>
-        <Link to="#">Investicijos verslui</Link>
-        <Link to="/submit-project">Projektų teikimas</Link>
-        <Link to="#">Apie RenewiFund</Link>
+      <div className="hidden md:flex gap-20 text-gray-800 font-medium">
+        <Link to="/projects">Investicijos žmonėms</Link>
+        <Link to="/new">Projektų teikimas</Link>
+        <Link to="/about">Apie RenewiFund</Link>
       </div>
 
       {/* Right side */}
       <div className="flex gap-4 items-center">
-        <button className="text-gray-700">EN</button>
-
         {!user && (
           <Link to="/login">
             <button className="bg-[#A7E163] px-5 py-2 rounded-full font-semibold">
@@ -71,9 +68,9 @@ export default function Navbar() {
 
         {user && (
           <div className="flex items-center gap-3">
-            <div className="text-sm text-gray-700 hidden sm:block">
+            <button onClick={() => navigate("/dashboard")} className="text-sm text-gray-700 hidden sm:block">
               {user.name} {user.surname}
-            </div>
+            </button>
 
             <button
               onClick={handleLogout}

@@ -19,6 +19,24 @@ export default function NewProject() {
     e.preventDefault();
     setSubmitted(true);
 
+    const user = JSON.parse(localStorage.getItem("user") || "{}");
+
+    // Save the project with user email
+    const projects = JSON.parse(localStorage.getItem("submittedProjects") || "[]");
+    const newProject = {
+      id: Date.now(),
+      ...formData,
+      userEmail: user.email,
+      status: "Vertinama",
+      date: new Date().toISOString().split('T')[0]
+    };
+
+projects.push(newProject);
+localStorage.setItem("submittedProjects", JSON.stringify(projects));
+
+// Dispatch event to update dashboard
+window.dispatchEvent(new Event("projectsChanged"));
+
     // Reset form after showing success message
     setTimeout(() => {
       setSubmitted(false);
@@ -65,7 +83,7 @@ export default function NewProject() {
   }
 
   return (
-    <div className="max-w-3xl mx-auto">
+    <div className="max-w-3xl mx-auto mt-8">
       {/* TITLE SECTION */}
       <div className="mb-8 text-center">
         <h2 className="text-green-600 text-2xl font-semibold mb-2">Pateikite duomenis apie savo projektą</h2>
@@ -78,7 +96,7 @@ export default function NewProject() {
       {/* FORM */}
       <form
         onSubmit={handleSubmit}
-        className="bg-white rounded-xl shadow-sm border border-gray-200 p-8"
+        className="mb-8 bg-white rounded-xl shadow-sm border border-gray-200 p-8"
       >
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {/* TITLE */}

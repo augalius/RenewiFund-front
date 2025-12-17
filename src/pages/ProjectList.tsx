@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ProjectCard } from "./ProjectCard";
 import { Search, Filter } from "lucide-react";
 
@@ -91,7 +91,29 @@ const mockProjects: Project[] = [
 export function ProjectList() {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState<string>("all");
+  const [isAccountValid, setIsAccountValid] = useState(false);
 
+  useEffect(() => {
+    const checkAccount = () => {
+      const user = JSON.parse(localStorage.getItem("user") || "{}");
+      setIsAccountValid(user.balance > 0 && user.isVerified);
+    };
+
+    // Initial check
+    checkAccount();
+
+    // Listen for user changes
+    const handleUserChange = () => checkAccount();
+    window.addEventListener("userChanged", handleUserChange);
+    window.addEventListener("storage", (e) => {
+      if (e.key === "user") checkAccount();
+    });
+
+    return () => {
+      window.removeEventListener("userChanged", handleUserChange);
+    };
+  }, []);
+  
   const filteredProjects = mockProjects.filter((project) => {
     const matchesSearch =
       project.title.toLowerCase().includes(searchTerm.toLowerCase()) ||

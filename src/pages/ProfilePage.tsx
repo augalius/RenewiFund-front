@@ -24,7 +24,7 @@ export function ProfilePage() {
 
   const [editMode, setEditMode] = useState(false);
   const [depositAmount, setDepositAmount] = useState("");
-
+  
   useEffect(() => {
     const saved = localStorage.getItem("user");
     if (saved) {
@@ -59,6 +59,7 @@ export function ProfilePage() {
 
     setUser(updated);
     localStorage.setItem("user", JSON.stringify(updated));
+    window.dispatchEvent(new Event("userChanged"));
     setDepositAmount("");
   };
 
@@ -228,6 +229,7 @@ export function ProfilePage() {
                   const updated = { ...user, isVerified: true };
                   setUser(updated);
                   localStorage.setItem("user", JSON.stringify(updated));
+                  window.dispatchEvent(new Event("userChanged"));
                 }}
               >
                 Patvirtinti tapatybę

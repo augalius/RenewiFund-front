@@ -8,6 +8,7 @@ import { RegisterPage } from "./pages/RegisterPage";
 import { UserDashboard } from "./pages/UserDashboard";
 import { DashboardLayout } from "./pages/DashboardLayout";
 import { ProfilePage } from "./pages/ProfilePage";
+import { AboutPage } from "./pages/AboutPage";
 
 export default function App() {
   return (
@@ -19,6 +20,7 @@ export default function App() {
           <Route path="/" element={<Home />} />
           <Route path="/new" element={<NewProject />} />
           <Route path="/projects" element={<ProjectList />} />
+          <Route path="/about" element={<AboutPage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} />
           <Route element={<DashboardLayout />}>
