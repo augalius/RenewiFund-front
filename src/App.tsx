@@ -9,6 +9,7 @@ import { UserDashboard } from "./pages/UserDashboard";
 import { DashboardLayout } from "./pages/DashboardLayout";
 import { ProfilePage } from "./pages/ProfilePage";
 import { AboutPage } from "./pages/AboutPage";
+import { MyProjectsPage } from "./pages/MyProjectsPage";
 
 export default function App() {
   return (
@@ -26,6 +27,7 @@ export default function App() {
           <Route element={<DashboardLayout />}>
             <Route path="/dashboard" element={<UserDashboard />} />
             <Route path="/profile" element={<ProfilePage />} />
+            <Route path="/my-projects" element={<MyProjectsPage />} />
           </Route>
         </Routes>
       </div>

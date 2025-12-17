@@ -275,7 +275,7 @@ export function UserDashboard() {
                 <div className="text-2xl font-bold">
                   {isDemoUser ? "860" : totalReturn.toFixed(0)} €
                 </div>
-                <div className="text-gray-500 text-sm">Gauta grąža</div>
+                <div className="text-gray-500 text-sm">Atsipirkimo grąža</div>
               </div>
 
               <div className="bg-white p-6 rounded-2xl shadow-sm border text-center">
