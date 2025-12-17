@@ -3,9 +3,10 @@ import type { Project } from './ProjectList';
 
 interface ProjectCardProps {
   project: Project;
+  isAccountValid: boolean;
 }
 
-export function ProjectCard({ project }: ProjectCardProps) {
+export function ProjectCard({ project, isAccountValid }: ProjectCardProps) {
   const fundingPercentage = (project.currentFunding / project.fundingGoal) * 100;
 
   const formatCurrency = (amount: number) => {
@@ -134,8 +135,15 @@ export function ProjectCard({ project }: ProjectCardProps) {
         </div>
 
         {/* BUTTON */}
-        <button className="w-full bg-green-600 hover:bg-green-700 text-white py-3 rounded-xl font-medium transition-colors">
-          Investuoti
+        <button
+          disabled={!isAccountValid}
+          className={`w-full py-3 rounded-lg transition-colors ${
+            isAccountValid
+              ? "bg-green-600 hover:bg-green-700 text-white"
+              : "bg-gray-300 text-gray-500 cursor-not-allowed"
+          }`}
+        >
+          {isAccountValid ? "Investuoti" : "Paskyra neaktyvi"}
         </button>
       </div>
     </div>

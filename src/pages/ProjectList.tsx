@@ -17,6 +17,10 @@ export interface Project {
   duration: string;
 }
 
+const user = JSON.parse(localStorage.getItem("user") || "{}");
+
+const isAccountValid = user.balance > 0 && user.isVerified;
+
 const mockProjects: Project[] = [
   {
     id: "1",
@@ -150,7 +154,7 @@ export function ProjectList() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {/* 👆 Increased spacing between cards */}
         {filteredProjects.map((project) => (
-          <ProjectCard key={project.id} project={project} />
+          <ProjectCard key={project.id} project={project} isAccountValid={isAccountValid} />
         ))}
       </div>
 
