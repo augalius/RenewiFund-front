@@ -2,6 +2,9 @@
 
 This is a simple fintech frontend web application with local storage for user registration designed to connect investors and green energy project makers.
 
+## Screenshot
+![Main Page Screenshot](./public/screenshot.png)
+
 ## Running Locally
 1. Clone the repository  
 2. run `npm run dev` 
